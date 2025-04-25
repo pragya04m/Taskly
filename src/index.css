@@ -11,7 +11,7 @@
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 142.1 70.6% 45.3%;
+    --primary: 142.1 70.6% 45.3%; // Maintaining the green primary color
     --primary-foreground: 144.9 80.4% 10%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
@@ -21,9 +21,9 @@
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 142.1 70.6% 45.3%;
+    --border: 142.1 70.6% 45.3%; // Green border
+    --input: 142.1 70.6% 45.3%; // Green input border
+    --ring: 142.1 70.6% 45.3%; // Green ring
   }
  
   * {
@@ -35,7 +35,7 @@
 }
 
 .glass {
-  @apply bg-secondary/50 backdrop-blur-lg border border-white/10 rounded-lg;
+  @apply bg-secondary/50 backdrop-blur-lg border border-primary rounded-lg;
 }
 
 .fade-in {

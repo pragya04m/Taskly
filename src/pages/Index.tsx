@@ -15,7 +15,7 @@ function Dashboard() {
   return (
     <div className="max-w-5xl mx-auto p-4 space-y-8">
       <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold">Task Dashboard</h1>
+        <h1 className="text-3xl font-bold">Taskly</h1>
         <TaskForm />
       </div>
       
