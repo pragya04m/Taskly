@@ -12,8 +12,28 @@ import {
 import { format } from "date-fns";
 import { Trash2 } from "lucide-react";
 
-export function TaskCard({ task }: { task: Task }) {
+interface TaskCardProps {
+  task: Task;
+  onStatusChange?: () => void;
+  onDelete?: () => void;
+}
+
+export function TaskCard({ task, onStatusChange, onDelete }: TaskCardProps) {
   const { updateTaskStatus, deleteTask } = useTaskContext();
+
+  const handleStatusChange = (value: TaskStatus) => {
+    updateTaskStatus(task.id, value);
+    if (onStatusChange) {
+      onStatusChange();
+    }
+  };
+
+  const handleDelete = () => {
+    deleteTask(task.id);
+    if (onDelete) {
+      onDelete();
+    }
+  };
 
   return (
     <Card className="p-4 glass fade-in">
@@ -28,7 +48,7 @@ export function TaskCard({ task }: { task: Task }) {
         <div className="flex items-center gap-2">
           <Select
             value={task.status}
-            onValueChange={(value: TaskStatus) => updateTaskStatus(task.id, value)}
+            onValueChange={handleStatusChange}
           >
             <SelectTrigger className="w-[140px]">
               <SelectValue />
@@ -42,7 +62,7 @@ export function TaskCard({ task }: { task: Task }) {
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => deleteTask(task.id)}
+            onClick={handleDelete}
           >
             <Trash2 className="h-4 w-4" />
           </Button>

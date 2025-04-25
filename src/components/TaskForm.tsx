@@ -21,7 +21,11 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 
-export function TaskForm() {
+interface TaskFormProps {
+  onTaskAdded?: () => void;
+}
+
+export function TaskForm({ onTaskAdded }: TaskFormProps) {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -41,6 +45,11 @@ export function TaskForm() {
       setDescription("");
       setDeadline(undefined);
       setOpen(false);
+      
+      // Call the onTaskAdded callback if provided
+      if (onTaskAdded) {
+        onTaskAdded();
+      }
     }
   };
 
