@@ -1,9 +1,9 @@
 
-import { useTaskContext } from "@/context/TaskContext";
+import { TaskProvider, useTaskContext } from "@/context/TaskContext";
 import { TaskCard } from "@/components/TaskCard";
 import { useToast } from "@/hooks/use-toast";
 
-const Completed = () => {
+function CompletedTasks() {
   const { tasks } = useTaskContext();
   const { toast } = useToast();
 
@@ -34,6 +34,14 @@ const Completed = () => {
         ))}
       </div>
     </div>
+  );
+}
+
+const Completed = () => {
+  return (
+    <TaskProvider>
+      <CompletedTasks />
+    </TaskProvider>
   );
 };
 

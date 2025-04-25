@@ -1,10 +1,10 @@
 
-import { useTaskContext } from "@/context/TaskContext";
+import { TaskProvider, useTaskContext } from "@/context/TaskContext";
 import { TaskCard } from "@/components/TaskCard";
 import { TaskForm } from "@/components/TaskForm";
 import { useToast } from "@/hooks/use-toast";
 
-const Tasks = () => {
+function TasksContent() {
   const { tasks } = useTaskContext();
   const { toast } = useToast();
 
@@ -47,6 +47,14 @@ const Tasks = () => {
         ))}
       </div>
     </div>
+  );
+}
+
+const Tasks = () => {
+  return (
+    <TaskProvider>
+      <TasksContent />
+    </TaskProvider>
   );
 };
 
