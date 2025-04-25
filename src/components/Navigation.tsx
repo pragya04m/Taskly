@@ -1,5 +1,5 @@
 
-import { LayoutDashboard, ListTodo, CheckSquare, Calendar } from "lucide-react";
+import { LayoutDashboard, ListTodo, CheckSquare } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -27,11 +27,6 @@ const navigationItems = [
     icon: CheckSquare,
     href: "/completed",
   },
-  {
-    title: "Calendar",
-    icon: Calendar,
-    href: "/calendar",
-  },
 ];
 
 export function Navigation() {
@@ -42,7 +37,10 @@ export function Navigation() {
           <NavigationMenuItem key={item.title}>
             <NavigationMenuLink
               href={item.href}
-              className={cn(navigationMenuTriggerStyle(), "gap-2 h-9")}
+              className={cn(
+                navigationMenuTriggerStyle(),
+                "gap-2 h-9 bg-primary hover:bg-primary/90 text-primary-foreground"
+              )}
             >
               <item.icon className="h-4 w-4" />
               <span>{item.title}</span>
